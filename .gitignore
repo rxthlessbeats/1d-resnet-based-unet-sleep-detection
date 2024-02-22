@@ -1,0 +1,9 @@
+/kaggle-child-mind-institute-detect-sleep-states
+train_series.parquet
+train_events.csv
+test_series.parquet
+
+/unet/*.bin
+/unet/*.csv
+/unet/*/
+/EDA/*.parquet
