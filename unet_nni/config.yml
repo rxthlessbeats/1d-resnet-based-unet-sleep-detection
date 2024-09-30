@@ -1,0 +1,16 @@
+authorName: default
+experimentName: model_tuning
+trialConcurrency: 2
+maxExecDuration: 1h
+maxTrialNum: 10
+trainingServicePlatform: local
+searchSpacePath: search_space.json
+useAnnotation: false
+tuner:
+  builtinTunerName: TPE
+  classArgs:
+    optimize_mode: maximize
+trial:
+  command: python3 unet_nni.py
+  codeDir: .
+  gpuNum: 1

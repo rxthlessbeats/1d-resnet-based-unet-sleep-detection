@@ -7,3 +7,5 @@ test_series.parquet
 /unet/*.csv
 /unet/*/
 /EDA/*.parquet
+/unet/*.pth
+/unet/*.npy

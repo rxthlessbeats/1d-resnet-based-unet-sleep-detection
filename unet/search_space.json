@@ -1,0 +1,5 @@
+{
+    "initial_channels_num": {"_type":"choice", "_value":[96, 120, 144, 168]},
+    "lr": {"_type":"loguniform", "_value":[1e-5, 1e-3]},
+    "batch_size": {"_type":"choice", "_value":[16, 32, 64, 128, 256]}
+}
