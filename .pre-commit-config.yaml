@@ -1,0 +1,32 @@
+exclude: |
+  (?x)^(
+    data/|
+    artifacts/|
+    model/|
+    \.venv/|
+    notebooks/|
+    .*\.ipynb|
+    .*\.parquet|
+    .*\.pkl|
+    .*\.npy|
+    stage2pred\.csv
+  )
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ["--maxkb=1024"]
+      - id: check-merge-conflict
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.12
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+        files: ^src/|^tests/
+      - id: ruff-format
+        files: ^src/|^tests/

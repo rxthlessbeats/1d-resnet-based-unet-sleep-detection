@@ -4,13 +4,13 @@ trialConcurrency: 2
 maxExecDuration: 1h
 maxTrialNum: 10
 trainingServicePlatform: local
-searchSpacePath: search_space.json
+searchSpacePath: ../unet/search_space.json
 useAnnotation: false
 tuner:
   builtinTunerName: TPE
   classArgs:
     optimize_mode: maximize
 trial:
-  command: python3 unet_nni.py
-  codeDir: .
+  command: uv run sleep-unet train --nni --prepared data/prepared --out artifacts --events train_events.csv
+  codeDir: ..
   gpuNum: 1

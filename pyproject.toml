@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sleep-unet"
+version = "0.1.0"
+description = "1D ResNet U-Net for sleep onset and wakeup detection"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pandas",
+    "polars",
+    "pyarrow",
+    "scikit-learn",
+    "scipy",
+    "torch",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+nni = ["nni"]
+notebooks = ["matplotlib", "ipython"]
+
+[project.scripts]
+sleep-unet = "sleep_unet.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pre-commit",
+    "ruff",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sleep_unet"]
+
+# CPU wheels only. A CUDA index is one URL change; see the README.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["notebooks", "unet", "EDA", "data", "artifacts", "model"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

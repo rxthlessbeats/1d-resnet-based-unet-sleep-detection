@@ -1,3 +1,15 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.venv/
+data/
+artifacts/
+model/
+*.egg-info/
+dist/
+
 /kaggle-child-mind-institute-detect-sleep-states
 train_series.parquet
 train_events.csv
@@ -9,3 +21,4 @@ test_series.parquet
 /EDA/*.parquet
 /unet/*.pth
 /unet/*.npy
+*.pth
